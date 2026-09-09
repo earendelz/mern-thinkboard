@@ -32,19 +32,11 @@ app.use("/api/notes", notesRoutes);
 
 
 if (process.env.NODE_ENV === "production") {
-  // path.join(__dirname, "..", "frontend", "dist") mengarah ke root/frontend/dist
-  const distPath = path.join(__dirname, "..", "frontend", "dist");
+    app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.use(express.static(distPath));
-
-  // Gunakan wildcard "*" bukan "/*splat"
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(distPath, "index.html"), (err) => {
-      if (err) {
-        res.status(500).send("File frontend tidak ditemukan di: " + distPath);
-      }
+    app.get("/*splat", (req, res) => {
+        res.sendFile(path.join(__dirname, "../frontend","dist", "index.html"))
     });
-  });
 }
 
 connectDB().then(() => {
