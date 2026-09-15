@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { LogInIcon } from "lucide-react";
 import toast from "react-hot-toast";
-import { useAuth } from "../context/authContext";
+import { useAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");

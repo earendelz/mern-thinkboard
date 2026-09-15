@@ -5,7 +5,7 @@ import NoteDetailPage from "./pages/NoteDetailPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Navbar from "./components/Navbar";
-import { AuthProvider, useAuth } from "./context/authContext";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 import { LoaderIcon } from "react-hot-toast";
 
 const ProtectedRoute = ({ children }) => {

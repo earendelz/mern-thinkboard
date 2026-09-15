@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import { PlusIcon, LogOutIcon } from "lucide-react";
-import { useAuth } from "../context/authContext";
+import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
