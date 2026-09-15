@@ -30,12 +30,11 @@ if (process.env.NODE_ENV !== "production") {
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(rateLimiter);
 
-app.use("/api/auth", authRoutes);
-app.use("/api/notes", protectRoute, notesRoutes);
+app.use("/api/auth", rateLimiter, authRoutes);
+app.use("/api/notes", protectRoute, rateLimiter ,notesRoutes);
 
-
+    
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
